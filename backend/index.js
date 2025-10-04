@@ -6,7 +6,7 @@ const fs = require('fs');
 require('dotenv').config();
 const cors = require('cors');
 const EmployeeRoutes = require('./Routes/EmployeeRoutes');
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8081;
 
 require('./Models/db');
 
