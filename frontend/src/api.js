@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:8080';
+const BASE_URL = 'https://employee-management-app-1.onrender.com';
 
 export const GetAllEmployees = async (search = '', page = 1, limit = 5) => {
     const url =
@@ -71,7 +71,7 @@ export const CreateEmployee = async (employeeData) => {
     }
 
     try {
-        const response = await fetch('http://localhost:8080/api/employees', {
+        const response = await fetch('https://employee-management-app-1.onrender.com/api/employees', {
             method: 'POST',
             body: formData // Don't set Content-Type header, browser will set it automatically
         });
@@ -103,7 +103,7 @@ export const UpdateEmployeeById = async (employeeData, id) => {
     }
 
     try {
-        const response = await fetch(`http://localhost:8080/api/employees/${id}`, {
+        const response = await fetch(`https://employee-management-app-1.onrender.com/api/employees/${id}`, {
             method: 'PUT',
             body: formData
         });
