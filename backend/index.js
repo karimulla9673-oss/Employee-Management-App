@@ -19,7 +19,7 @@ if (!fs.existsSync(uploadDir)) {
 // CORS configuration - Allow your frontend domain
 const corsOptions = {
     origin: [
-        'http://localhost:3000', // For local development
+        'http://localhost:3001', // For local development
         'https://employee-management-app-2.onrender.com', // Your deployed frontend
         // Add any other frontend URLs you might have
     ],
