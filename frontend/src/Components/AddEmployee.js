@@ -19,6 +19,10 @@ function AddEmployee({
         if (employeeObj) {
             setEmployee(employeeObj);
             setUpdateMode(true);
+        } else {
+            // Reset form when employeeObj is null
+            resetEmployeeStates();
+            setUpdateMode(false);
         }
     }, [employeeObj]);
 
@@ -69,17 +73,21 @@ function AddEmployee({
         setUpdateMode(false);
         resetEmployeeStates();
     }
+    
     return (
-        < div className={`modal ${showModal ? 'd-block' : ''}`
-        } tabIndex="-1" role="dialog" style={{ display: showModal ? 'block' : 'none' }}>
+        <div className={`modal ${showModal ? 'd-block' : ''}`} 
+             tabIndex="-1" 
+             role="dialog" 
+             style={{ display: showModal ? 'block' : 'none' }}>
             <div className="modal-dialog" role="document">
                 <div className="modal-content">
                     <div className="modal-header">
-                        <h5 className="modal-title"> {
-                            updateMode ? 'Update Employee' : 'Add Employee'
-                        }</h5>
-                        <button type="button" className="btn-close"
-                            onClick={() => handleModalClose()}>
+                        <h5 className="modal-title">
+                            {updateMode ? 'Update Employee' : 'Add Employee'}
+                        </h5>
+                        <button type="button" 
+                                className="btn-close"
+                                onClick={handleModalClose}>
                         </button>
                     </div>
                     <div className="modal-body">
@@ -156,8 +164,7 @@ function AddEmployee({
                     </div>
                 </div>
             </div>
-        </div >
-
+        </div>
     )
 }
 

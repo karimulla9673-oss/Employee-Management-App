@@ -22,27 +22,32 @@ const EmployeeManagementApp = () => {
     const fetchEmployees = async (search = '', page = 1, limit = 5) => {
         console.log('Called fetchEmployees')
         try {
-            const data =
-                await GetAllEmployees(search, page, limit);
+            const data = await GetAllEmployees(search, page, limit);
             console.log(data);
             setEmployeesData(data);
         } catch (err) {
             alert('Error', err);
         }
     }
+    
     useEffect(() => {
         fetchEmployees();
     }, [])
 
-
     const handleSearch = (e) => {
         fetchEmployees(e.target.value)
+    }
+
+    const handleAddEmployeeClick = () => {
+        setEmployeeObj(null); // Clear any previous employee object
+        setShowModal(true);
     }
 
     const handleUpdateEmployee = async (emp) => {
         setEmployeeObj(emp);
         setShowModal(true);
     }
+    
     return (
         <div className='d-flex flex-column justify-content-center align-items-center w-100 p-3'>
             <h1>Employee Management App</h1>
@@ -50,7 +55,7 @@ const EmployeeManagementApp = () => {
                 <div className='w-80 border bg-light p-3' style={{ width: '80%' }}>
                     <div className='d-flex justify-content-between mb-3'>
                         <button className='btn btn-primary'
-                            onClick={() => setShowModal(true)}>Add</button>
+                            onClick={handleAddEmployeeClick}>Add</button>
                         <input
                             onChange={handleSearch}
                             type="text"
